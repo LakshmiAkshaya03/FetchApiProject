@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid" >
+          <h4 class="subpart1 text-primary">DATA <span class="subpart2 text-black">STORE</span></h4>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+            <ul class="navbar-nav mb-2 mb-lg-0 ">
+              <li class="nav-item ms-4  ps-2 pe-2 border border-primary">
+                <a class="nav-link active " aria-current="page" href="index.html">HOME</a>
+              </li>
+              <li class="nav-item ms-4  ps-2 pe-2 border border-primary" >
+                <a class="nav-link active" href="login.html">LOGIN</a>
+              </li>
+              <li class="nav-item ms-4  ps-2 pe-2 border border-primary">
+                <a class="nav-link active" aria-current="page" href="register.html">REGISTER</a>
+              </li>
+          </ul>
+          </div>
+        </div>
+        </nav>
+    <div class="container ">
+        <h3 class="text-center mt-4 text-primary">Fetch API</h3><br>
+        <div class="row g-3 ">
+            <div class="col-lg-3 col-md-6  col-12 ">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title"></h5>
+                  <p class="card-text"></p>
+                  <h6 class="card-email"></h6>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6  col-12">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title"></h5>
+                  <p class="card-text"></p>
+                  <h6 class="card-email"></h6>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6  col-12">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title"></h5>
+                  <p class="card-text"></p>
+                  <h6 class="card-email"></h6>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6  col-12">
+              <div class="card">
+                
+                <div class="card-body">
+                  <h5 class="card-title"></h5>
+                  <p class="card-text"></p>
+                  <h6 class="card-email"></h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row g-3  mt-2 ">
+            <div class="col-lg-3 col-md-6  col-12">
+              <div class="card">
+                
+                <div class="card-body">
+                  <h5 class="card-title"></h5>
+                  <p class="card-text"></p>
+                  <h6 class="card-email"></h6>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6  col-12">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title"></h5>
+                  <p class="card-text"></p>
+                  <h6 class="card-email"></h6>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6  col-12">
+              <div class="card">
+                
+                <div class="card-body">
+                  <h5 class="card-title"></h5>
+                  <p class="card-text"></p>
+                  <h6 class="card-email"></h6>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6  col-12">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title"></h5>
+                  <p class="card-text"></p>
+                  <h6 class="card-email"></h6>
+                </div>
+                </div>
+              </div>
+            </div>
+            <div class="row g-3  mt-2 ">
+              <div class="col-lg-3 col-md-6  col-12 ">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text"></p>
+                    <h6 class="card-email"></h6>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6  col-12 ">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text"></p>
+                    <h6 class="card-email"></h6>
+                  </div>
+          </div>
+    </div>
+    <script>
+    function fetchHandler() {
+    // Select all card bodies first
+    const cardBodies = document.querySelectorAll('.card-body');
+
+    // Fetch data from the API
+    fetch("https://jsonplaceholder.typicode.com/users")
+        .then((res) => res.json())
+        .then((data) => {
+            // Iterate over API data and map it to cards
+            data.forEach((element, index) => {
+                // Only update cards if there are enough card bodies
+                if (index < cardBodies.length) {
+                    const card = cardBodies[index];
+
+                    // Select child elements within the specific card
+                    const nameInput = card.querySelector('h5');
+                    const addInput = card.querySelector('p');
+                    const emailInput = card.querySelector('h6');
+
+                    // Populate the card with API data
+                    nameInput.textContent = `${element.name}`;
+                    addInput.textContent = `Address:${element.address.street}, ${element.address.suite}, ${element.address.city}, ${element.address.zipcode}, Lat: ${element.address.geo.lat}, Lng: ${element.address.geo.lng}`;
+
+                       
+                    emailInput.textContent = `${element.email}`;
+                }
+            });
+        })
+        .catch((err) => {
+            console.error("Error has occurred:", err);
+        });
+}
+
+// Call the function to fetch and populate data
+fetchHandler();
+
+     
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+  <hr>
+  <footer>
+    <span class="d-flex justify-content-center">Created by &nbsp;<span class="text-danger">Lakshmi Akshaya T</span></span>
+  </footer>
+</html>
